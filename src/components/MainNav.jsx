@@ -41,15 +41,16 @@ export default function MainNav() {
             </Offcanvas.Header>
             <Offcanvas.Body className="bg-dark text-light">
               <Nav className="text-light justify-content-center flex-grow-1 pe-3">
-                <NavLink className="nav-link" to="/home">
+                <NavLink className="nav-link text-light" to="/home">
                   Home
                 </NavLink>
-                <NavLink className="nav-link" to="/about">
+                <NavLink className="nav-link text-light" to="/about">
                   About
                 </NavLink>
                 <NavDropdown
                   title="Gategory"
                   id={`offcanvasNavbarDropdown-expand-md`}
+                  className="text-light"
                 >
                   <NavLink className="dropdown-item" to="/clothes">
                     Clothes
