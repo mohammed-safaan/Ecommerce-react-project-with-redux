@@ -1,5 +1,5 @@
 import React from "react";
-import Home from "./components/Home";
+import Home from "./components/Home/Home";
 import About from "./components/About";
 import Page404 from "./components/Page404";
 import MainNav from "./components/MainNav";
