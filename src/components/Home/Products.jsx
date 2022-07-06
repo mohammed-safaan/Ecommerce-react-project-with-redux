@@ -5,26 +5,28 @@ import { GetAllProducts } from "../../Redux/Actions/GetAllProducts";
 import { Container, Row } from "react-bootstrap";
 
 function Products(props) {
-  const { productsData , GetProducts } = props;
+  const { productsData , getProducts } = props;
   useEffect(() => {
-    GetProducts();
+    getProducts();
   }, []);
   return (
     <Container fluid>
       <Row>
-        {productsData &&
+        { productsData &&
           productsData.map((product, index) => {
             return (
-              <div key={index} className="col-sm-6 col-md-4 col-lg-3" >
+              <div key={index} className="col-sm-6 col-md-4" >
                 <MainCard
                   imgSrc={product.image}
                   title={product.title}
                   desc={product.description}
                   price={product.price}
+                  product={product}
                 />
               </div>
             );
-          })}
+          })
+        }
       </Row>
     </Container>
   );
@@ -36,7 +38,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    GetProducts: () => dispatch(GetAllProducts()),
+    getProducts: () => dispatch(GetAllProducts()),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Products);

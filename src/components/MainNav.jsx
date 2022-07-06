@@ -6,18 +6,14 @@ import {
   NavDropdown,
   Offcanvas,
 } from "react-bootstrap";
-import { IoBasket, IoCartSharp } from "react-icons/io5";
+import { IoBasket } from "react-icons/io5";
 import { RiMenu4Fill } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
+import Cart from "./Cart/Cart";
 export default function MainNav() {
   return (
     <header>
-      <Navbar
-        bg="dark"
-        variant="dark"
-        expand="md"
-        className="mb-3 shadow"
-      >
+      <Navbar bg="dark" variant="dark" expand="md" className="mb-3 shadow">
         <Container fluid>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-md`}>
             <RiMenu4Fill className="display-6" />
@@ -40,7 +36,7 @@ export default function MainNav() {
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body className="bg-dark text-light">
-              <Nav className="text-light justify-content-center flex-grow-1 pe-3">
+              <Nav className="text-light flex-grow-1 pe-3">
                 <NavLink className="nav-link text-light" to="/home">
                   Home
                 </NavLink>
@@ -67,15 +63,15 @@ export default function MainNav() {
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
-          <NavLink
-            to="/home"
-            className="w-25 navbar-brand m-0 d-flex justify-content-center align-items-center"
-          >
-            Basket
-            <IoBasket />
-          </NavLink>
-          <div className="text-light w-25 d-flex justify-content-center align-items-center">
-            <IoCartSharp />
+          <div className="center justify-content-between w-50">
+            <NavLink
+              to="/home"
+              className=" navbar-brand m-0 center"
+            >
+              Basket
+              <IoBasket />
+            </NavLink>
+            <Cart />
           </div>
         </Container>
       </Navbar>
