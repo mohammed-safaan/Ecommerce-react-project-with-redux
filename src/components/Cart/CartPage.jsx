@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { Button, Card, Container, Row } from "react-bootstrap";
 import { BsFillCartXFill, BsFillTrashFill } from "react-icons/bs";
 import { connect } from "react-redux";
@@ -10,7 +10,17 @@ import {
 } from "../../Redux/Actions/CartAction";
 
 function CartPage(props) {
-  const { cart, removeFromCart, decreaseQty, increaseQty, removeAll } = props;
+  let { cart, removeFromCart, decreaseQty, increaseQty, removeAll } = props;
+  if(localStorage.getItem("cart")){
+    cart = localStorage.getItem("cart");
+  }
+  // useEffect(()=>{
+  //   // if(""){}
+  // },[])
+  useEffect(()=>{
+    localStorage.setItem("cart",JSON.stringify(cart));
+  })
+
   return (
     <Container fluid>
       <Row>
@@ -75,11 +85,18 @@ function CartPage(props) {
         </Button>
         <div>
           Total price :
-          {/* { cart.productsInCart && 
-          cart.productsInCart.reduce((acc , ele) => {
-              return (acc.price + ele.price);
+          {cart.productsInCart.length === 1
+            ? cart.productsInCart.map((ele) => ele.price * ele.productQty)
+            : // test.price * test.productQty
+            cart.totalQty > 0
+            ? cart.productsInCart.reduce((prevEle, nextEle) => {
+                console.log(prevEle.price, nextEle.price);
+                return (
+                  prevEle.price * prevEle.productQty +
+                  nextEle.price * nextEle.productQty
+                );
               })
-          } */}
+            : 0}
           $
         </div>
       </div>

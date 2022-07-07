@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { AddToCart } from "../../Redux/Actions/CartAction";
 
 function MainCard(props) {
-  const { title, desc, imgSrc, price, product, addToCart } = props;
+  const { title, desc, imgSrc, price, product, addToCart } = props
   return (
     <>
       <Card bg="dark" text="light">

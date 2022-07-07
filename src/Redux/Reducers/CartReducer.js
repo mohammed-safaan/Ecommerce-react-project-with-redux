@@ -2,6 +2,7 @@ let intialState = {
   productsInCart: [],
   totalQty: 0,
 };
+
 export function CartReducer(state = intialState, action) {
   // add to cart
   if (action.type === "ADD-TO-CART") {
@@ -68,13 +69,15 @@ export function CartReducer(state = intialState, action) {
       ...state,
     };
   }
-
+  // remove all
   if (action.type === "REMOVE-ALL") {
     state.productsInCart = [];
     state.totalQty = 0;
+    state.totalPrice = 0;
     return {
       ...state,
     };
   }
+
   return state;
 }

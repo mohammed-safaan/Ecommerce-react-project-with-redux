@@ -13,7 +13,7 @@ import Cart from "./Cart/Cart";
 export default function MainNav() {
   return (
     <header>
-      <Navbar bg="dark" variant="dark" expand="md" className="mb-3 shadow">
+      <Navbar bg="dark" variant="dark" expand="md" className="mb-3 shadow fixed-top">
         <Container fluid>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-md`}>
             <RiMenu4Fill className="display-6" />
