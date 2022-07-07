@@ -5,7 +5,9 @@ import Page404 from "./components/Page404";
 import MainNav from "./components/MainNav";
 import { Navigate, Route, Routes } from "react-router-dom";
 import CartPage from "./components/Cart/CartPage";
+
 function App() {
+
   return (
     <div className="App">
       <MainNav/>

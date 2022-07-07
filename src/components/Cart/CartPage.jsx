@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React from "react";
 import { Button, Card, Container, Row } from "react-bootstrap";
 import { BsFillCartXFill, BsFillTrashFill } from "react-icons/bs";
 import { connect } from "react-redux";
@@ -11,15 +11,16 @@ import {
 
 function CartPage(props) {
   let { cart, removeFromCart, decreaseQty, increaseQty, removeAll } = props;
-  if(localStorage.getItem("cart")){
-    cart = localStorage.getItem("cart");
-  }
+  
+  // useEffect(()=> {
+  //   // localStorage.cart ?console.log(cart) :cart;
+  //   // console.log(localStorage.cart, cart);
+  //   console.log(JSON.parse(localStorage.cart))
+  // }, []);
+
   // useEffect(()=>{
-  //   // if(""){}
-  // },[])
-  useEffect(()=>{
-    localStorage.setItem("cart",JSON.stringify(cart));
-  })
+  //   localStorage.setItem("cart", JSON.stringify(cart));
+  // }, [cart]);
 
   return (
     <Container fluid>
@@ -28,7 +29,7 @@ function CartPage(props) {
           cart.productsInCart.map((product, index) => {
             return (
               <div key={index} className="col-sm-6 col-md-4">
-                <Card bg="dark" text="light">
+                <Card bg="dark" text="light" className="mb-2">
                   <Card.Img variant="top" src={product.image} />
                   <Card.Body>
                     <Card.Title className="text-truncate">

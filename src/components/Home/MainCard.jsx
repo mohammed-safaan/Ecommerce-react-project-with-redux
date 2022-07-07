@@ -8,11 +8,18 @@ function MainCard(props) {
   const { title, desc, imgSrc, price, product, addToCart } = props
   return (
     <>
-      <Card bg="dark" text="light">
-        <Card.Img
-          variant="top"
-          src={imgSrc}
-        />
+      <Card bg="dark" text="light" style={{ maxHeight: '500px',  marginBottom: '35px' }}>
+        <div style={{ height: '250px' }}>
+          <Card.Img 
+            style={{ 
+              maxWidth: '100%',
+              maxHeight: '100%',
+              objectFit: 'contain',
+            }}
+            variant="top"
+            src={imgSrc}
+          />
+        </div>
         <Card.Body>
           <Card.Title className="text-truncate">{title}</Card.Title>
           <Card.Text className="text-truncate">{desc}</Card.Text>

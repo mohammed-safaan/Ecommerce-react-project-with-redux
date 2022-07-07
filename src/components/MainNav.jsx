@@ -3,7 +3,6 @@ import {
   Container,
   Nav,
   Navbar,
-  NavDropdown,
   Offcanvas,
 } from "react-bootstrap";
 import { IoBasket } from "react-icons/io5";
@@ -11,6 +10,7 @@ import { RiMenu4Fill } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
 import Cart from "./Cart/Cart";
 export default function MainNav() {
+
   return (
     <header>
       <Navbar bg="dark" variant="dark" expand="md" className="mb-3 shadow fixed-top">
@@ -38,37 +38,20 @@ export default function MainNav() {
             <Offcanvas.Body className="bg-dark text-light">
               <Nav className="text-light flex-grow-1 pe-3">
                 <NavLink className="nav-link text-light" to="/home">
-                  Home
+                  Home 
                 </NavLink>
                 <NavLink className="nav-link text-light" to="/about">
                   About
                 </NavLink>
-                <NavDropdown
-                  title="Gategory"
-                  id={`offcanvasNavbarDropdown-expand-md`}
-                  className="text-light"
-                >
-                  <NavLink className="dropdown-item" to="/clothes">
-                    Clothes
-                  </NavLink>
-                  <NavDropdown.Divider />
-                  <NavLink className="dropdown-item" to="/shoes">
-                    Shoes
-                  </NavLink>
-                  <NavDropdown.Divider />
-                  <NavLink className="dropdown-item" to="/other">
-                    other
-                  </NavLink>
-                </NavDropdown>
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
-          <div className="center justify-content-between w-50">
+          <div className="center w-75 justify-content-around">
             <NavLink
               to="/home"
               className=" navbar-brand m-0 center"
             >
-              Basket
+              <span className="d-none d-sm-block">Basket</span> 
               <IoBasket />
             </NavLink>
             <Cart />
